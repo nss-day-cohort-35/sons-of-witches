@@ -22,12 +22,9 @@ class NavBar extends Component {
             {(this.props.user) ?
               <li><Link className="nav-link" to="/cauldron">Cauldron</Link></li>
               : null}
-<<<<<<< HEAD
-=======
               {(this.props.user) ?
                 <li><Link className="nav-link" to="/coven">Coven</Link></li>
                 : null}
->>>>>>> master
             {(this.props.user) ?
               <>
               <li><Link className="nav-link" to="/coven">Coven</Link></li>
