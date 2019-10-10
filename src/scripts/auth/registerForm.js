@@ -97,13 +97,13 @@ getData = e => {
                             id="password"
                             placeholder="Password"
                             required="" />
-                        <label htmlFor="inputPassword">Password</label>
-                        <button type="button" onClick={this.newUser}>
+                        <label htmlFor="inputPassword"></label>
+                        <button type="button" className="signIn" onClick={this.newUser}>
                             Sign Up
                         </button>
                     </div>
             </fieldset>
             </div>
             </form>
-            
+
 )}}

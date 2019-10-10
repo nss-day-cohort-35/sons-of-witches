@@ -84,8 +84,8 @@ export default class LoginForm extends Component {
                 <input type="checkbox" className="remember"></input>
               </div>
               <div>
-                <label htmlFor="inputPassword">Password</label>
-                <button type="button" onClick={this.handleLogin}>
+                <label htmlFor="inputPassword"></label>
+                <button type="button" className="signIn" onClick={this.handleLogin}>
                   Sign In
                 </button>
               </div>
