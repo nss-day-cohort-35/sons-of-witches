@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/apimanager";
-import { Link, Route, withRouter, Redirect} from "react-router-dom";
+import { Link, Route, withRouter, Redirect } from "react-router-dom";
 
 export default class LoginForm extends Component {
   state = {
     username: "",
     password: "",
-    users: [],
-    userId: ""
+    userId: "",
+    users: []
   };
 
   handleFieldChange = evt => {
@@ -28,11 +28,16 @@ export default class LoginForm extends Component {
           password: this.state.password,
           userId: user.id
         };
-        this.props.setUser(credentials);
-        this.props.history.push("/");
+        let box = document.querySelector(".remember");
+        if(box.checked === true){
+          this.props.rememberMe(credentials);
+          this.props.history.push("/")
+        } else {
+          this.props.setUser(credentials);
+          this.props.history.push("/");
+        }
       } else {
-        // alert("You need to register")
-        this.props.history.push("/login/register-form");
+        // return this.props.history.push("/login/register-form");
       }
     });
   };
@@ -51,33 +56,41 @@ export default class LoginForm extends Component {
   render() {
     return (
       <form>
-      <div className="box">
-        <fieldset className="bod">
-          <h3 className="loginHeader">Join your coven:</h3>
-          <div className="formgrid">
-            <input className="username"
-              onChange={this.handleFieldChange}
-              type="text"
-              id="username"
-              placeholder="Username"
-              required=""
-              autoFocus=""
-            />
-            <label htmlFor="inputUsername"></label>
+        <div className="box">
+          <fieldset className="bod">
+            <h3 className="loginHeader">Join your coven:</h3>
+            <div className="formgrid">
+              <input
+                className="username"
+                onChange={this.handleFieldChange}
+                type="text"
+                id="username"
+                placeholder="Username"
+                required=""
+                autoFocus=""
+              />
+              <label htmlFor="inputUsername"></label>
 
-            <input className="password"
-              onChange={this.handleFieldChange}
-              type="password"
-              id="password"
-              placeholder="Password"
-              required=""
-            />
-            <label htmlFor="inputPassword"></label>
-            <button type="button" className="signIn" onClick={this.handleLogin}>
-              Login
-            </button>
-          </div>
-        </fieldset>
+              <input
+                className="password"
+                onChange={this.handleFieldChange}
+                type="password"
+                id="password"
+                placeholder="Password"
+                required=""
+              ></input>
+              <div>
+                <label>Remember Me</label>
+                <input type="checkbox" className="remember"></input>
+              </div>
+              <div>
+                <label htmlFor="inputPassword">Password</label>
+                <button type="button" onClick={this.handleLogin}>
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </fieldset>
         </div>
       </form>
     );

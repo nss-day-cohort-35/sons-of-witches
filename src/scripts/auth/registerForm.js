@@ -5,7 +5,8 @@ import './login.css';
 export default class UserForm extends Component {
     state = {
         username: "",
-        password: ""
+        password: "",
+        users: []
     }
     
     newUser = (e) => {
@@ -14,7 +15,7 @@ export default class UserForm extends Component {
             username: this.state.username,
             password: this.state.password,
         }
-        APIManager.post("users", user).then(newUser => this.handleLogin())
+        APIManager.post("users", user).then(() => this.handleLogin())
      }
 
     handleFieldChange = (evt) => {
@@ -22,16 +23,61 @@ export default class UserForm extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
+//     handleLogin = () => {
+//         this.state.users.map(user => {
+//             if (
+//                 user.username === this.state.username &&
+//                 user.password === this.state.password
+//                 ) {
+//                     console.log("here");
+//                     let credentials = {
+//               username: this.state.username,
+//               password: this.state.password,
+//               userId: user.id
+//             };
+//             this.props.setUser(credentials);
+//             this.props.history.push("/");
+//         } else {
+//             // alert("You need to register")
+//             this.props.history.push("/login/register-form");
+//         }
+//     });
+// };
 
+getData = e => {
+    // console.log(this.state.users)
+    APIManager.getAll("users").then(users => {
+        users.map(user=> {
+            if(user.username !== this.state.username){
+                return false
+            } else {
+                return true
+            }
+        })
+          this.setState({
+            users: users
+          });
+        })
+      };
+    
+      componentDidMount() {
+        this.getData();
+      }
     handleLogin = () => {
-        /*
-            For now, just store the email and password that
-            the customer enters into local storage.
-        */
-        let credentials = {username: this.state.username, password: this.state.password}
-        this.props.setUser(credentials);
-        this.props.history.push("/");
-    }
+        this.getData()
+            this.state.users.map(user => {
+                console.log(user)
+                if(user.username !== this.state.username){
+                    // sessionStorage.clear()
+                    let credentials = {username: this.state.username, password: this.state.password, userId: user.userId}
+                    this.props.setUser(credentials);
+                    this.props.history.push("/");
+                } else {
+                    window.alert("You already have an account!")
+                    return this.props.history.push("/login/login-form")
+                }
+            })
+        }
 
     render() {
         return (
@@ -51,9 +97,9 @@ export default class UserForm extends Component {
                             id="password"
                             placeholder="Password"
                             required="" />
-                        <label htmlFor="inputPassword"></label>
-                        <button type="button" className="signIn" onClick={this.newUser}>
-                            Sign Up!
+                        <label htmlFor="inputPassword">Password</label>
+                        <button type="button" onClick={this.newUser}>
+                            Sign Up
                         </button>
                     </div>
             </fieldset>

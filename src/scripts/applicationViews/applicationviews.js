@@ -8,26 +8,47 @@ import MessageList from "../messages/messagelist"
 
 export default class ApplicationViews extends Component {
 
-    // isAuthenticated = () => localStorage.getItem("credentials") !== null
+    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+    isRemebered = () => localStorage.getItem("credentials") !== null
 
 render() {
     return (
       <React.Fragment>
         <Route exact path="/" render={(props) => {
-          return <Home />
+          if(this.isAuthenticated || this.isRemebered){
+            return <Home />
+          } else {
+            return <Redirect to="/login" />;
+          }
         }} />
 
             <Route exact path="/login" render={props => {
-          return <Login {...props} />
+              if(this.isAuthenticated || this.isRemebered){
+                return <Login {...props} />
+              } else {
+                return <Redirect to="/login" />
+              }
         }} />
             <Route exact path="/login/register-form" render={props => {
-          return <UserForm setUser={this.props.setUser} {...props} />
+              if(this.isAuthenticated || this.isRemebered){
+                return <UserForm rememberMe={this.props.remeberMe} setUser={this.props.setUser} {...props} />
+              } else {
+                return <Redirect to="/login" />
+              }
         }} />
           <Route exact path="/login/login-form" render={props => {
-          return <LoginForm setUser={this.props.setUser} {...props} />
+            if(this.isAuthenticated || this.isRemebered){
+              return <LoginForm rememberMe={this.props.rememberMe} setUser={this.props.setUser} {...props} />
+            } else {
+              return <Redirect to="/login" />
+            }
         }} />
           <Route exact path="/chat" render={props => {
-          return <MessageList {...props} />
+            if(this.isAuthenticated || this.isRemebered){
+              return <MessageList {...props} />
+            } else {
+              return <Redirect to="/login" />
+             }
         }} />
 
 
