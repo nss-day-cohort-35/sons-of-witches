@@ -22,9 +22,9 @@ class NavBar extends Component {
             {(this.props.user) ?
               <li><Link className="nav-link" to="/cauldron">Cauldron</Link></li>
               : null}
-            <li><Link className="nav-link" to="/coven">Coven</Link></li>
             {(this.props.user) ?
               <>
+              <li><Link className="nav-link" to="/coven">Coven</Link></li>
                 <li><Link className="nav-link" to="/chat">Chat</Link></li>
                 <li><span className="nav-link" onClick={this.handleLogout}>Logout</span></li>
               </>

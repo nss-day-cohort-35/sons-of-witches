@@ -20,10 +20,10 @@ export default class MessageList extends Component {
   render() {
     return (
       <>
-        <div>
+        <div className="messageBox">
           <label className="messageLabel">Write a new Messages</label>
-          <input type="text"></input>
-          <button type="button">Send</button>
+          <input type="text" className="messageInput"></input>
+          <button type="button" className="messageBtn">Send</button>
           {this.state.messages.map(message =>
             <MessageCard
               key={message.id}
