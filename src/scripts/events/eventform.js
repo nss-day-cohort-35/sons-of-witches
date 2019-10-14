@@ -17,7 +17,6 @@ import APIManager from "../../modules/apimanager";
   };
 
   newEvent = e => {
-    console.log("firing new event");
     if (
       localStorage.getItem("credentials") !== null ||
       sessionStorage.getItem("credentials") !== null

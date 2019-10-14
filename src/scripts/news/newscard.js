@@ -3,7 +3,6 @@ import "./news.css";
 
 class NewsCard extends Component {
   render() {
-    console.log("renderingggg");
     return (
       <div className="newsContainer">
         <div className="articleContainer"></div>

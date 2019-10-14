@@ -9,13 +9,11 @@ class EventsList extends Component {
   };
 
   componentDidMount() {
-    console.log("NEWS LIST: ComponentDidMount");
     this.getData();
   }
 
   getData = () => {
     APImanager.getAll("events").then(events => {
-      console.log("am I getting events", events);
       this.setState({
         events: events
       });
@@ -33,7 +31,6 @@ class EventsList extends Component {
   };
 
   render() {
-    console.log("EventsList: Render!!!!", this.state.events);
 
     return (
       <>

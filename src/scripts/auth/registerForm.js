@@ -29,7 +29,6 @@ export default class UserForm extends Component {
 //                 user.username === this.state.username &&
 //                 user.password === this.state.password
 //                 ) {
-//                     console.log("here");
 //                     let credentials = {
 //               username: this.state.username,
 //               password: this.state.password,
@@ -45,7 +44,6 @@ export default class UserForm extends Component {
 // };
 
 getData = e => {
-    // console.log(this.state.users)
     APIManager.getAll("users").then(users => {
         users.map(user=> {
             if(user.username !== this.state.username){
@@ -66,7 +64,6 @@ getData = e => {
     handleLogin = () => {
         this.getData()
             this.state.users.map(user => {
-                console.log(user)
                 if(user.username !== this.state.username){
                     // sessionStorage.clear()
                     let credentials = user.id

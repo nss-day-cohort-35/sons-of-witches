@@ -17,7 +17,6 @@ export default class NewsForm extends Component {
   };
 
   newArticle = e => {
-    console.log("firing new article");
     if (
       localStorage.getItem("credentials") !== null ||
       sessionStorage.getItem("credentials") !== null

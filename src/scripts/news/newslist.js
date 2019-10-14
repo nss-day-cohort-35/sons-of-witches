@@ -8,13 +8,11 @@ class NewsList extends Component {
   };
 
   componentDidMount() {
-    console.log("NEWS LIST: ComponentDidMount");
     this.getData();
   }
 
   getData = () => {
     APImanager.getAll("articles").then(articles => {
-      console.log("am I getting articles", articles);
       this.setState({
         articles: articles
       });
@@ -32,7 +30,6 @@ class NewsList extends Component {
   };
 
   render() {
-    console.log("NewsList: Render!!!!", this.state.articles);
 
     return (
       <>

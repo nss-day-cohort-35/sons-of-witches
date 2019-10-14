@@ -2,5 +2,28 @@ h1 {
     font-family: 'Cinzel Decorative', cursive !important;
 }
 body {
-    background-image: url(src/images/1.jpg)
+    background-image: url(./1.jpg)
+}
+
+
+/* footer {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center; */
+footer {
+    margin-bottom: 0%;
+    margin-top: 60%;
+    background-color: black;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    padding: 0;
+    margin-bottom: 0;
 }

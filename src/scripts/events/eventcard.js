@@ -3,7 +3,6 @@ import "./event.css";
 
 class EventsCard extends Component {
   render() {
-    console.log("renderingggg");
     return (
       <div className="eventsContainer">
         <p className="sectionTitle">
