@@ -10,7 +10,7 @@ class Login extends Component {
 				<section className="is-centered">
 					<p className="title is-3">User Login:</p>
 				{/* <img src={`../../images/signIn.svg`}/> */}
-			<img className= "loginImg" src={`../../../images/login.png`}/>
+			<img className= "loginImg" src={`./images/login.png`}/>
 				</section>
         <Link to="/login/login-form">
           <button type="submit" className="button">Login</button>
