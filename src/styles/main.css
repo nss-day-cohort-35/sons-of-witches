@@ -1,6 +1,7 @@
 h1 {
   font-family: "Cinzel Decorative", cursive !important;
 }
-body {
-  background-image: url(src/images/1.jpg);
+
+.box {
+  width: 700px !important;
 }

@@ -51,13 +51,16 @@ export default class LoginForm extends Component {
   }
   render() {
     return (
-      <form>
-        <div className="box">
-          <fieldset className="bod">
-            <h3 className="loginHeader">Join your coven:</h3>
-            <div className="formgrid">
-              <input
-                className="username"
+      
+        <div className="box container login">
+          <section className="is-centered">
+            <p className="title is-4">Join your coven:</p>
+            </section>
+            <form>
+              <div className="field">
+                <div className="control">
+                <input
+                className="input"
                 onChange={this.handleFieldChange}
                 type="text"
                 id="username"
@@ -65,6 +68,11 @@ export default class LoginForm extends Component {
                 required=""
                 autoFocus=""
               />
+                </div>
+              </div>
+            
+              <div className="field">
+              <div className="control">
               <label htmlFor="inputUsername"></label>
 
               <input
@@ -75,8 +83,25 @@ export default class LoginForm extends Component {
                 placeholder="Password"
                 required=""
               ></input>
-              <div>
-                <label>Remember Me</label>
+              </div>
+              </div>
+              <div className="field">
+              <div className="control">
+                <label className="checkbox">
+                  <input className="remember checkbox" type="checkbox"/>
+                   Remember Me
+                </label>
+                </div>
+                </div>
+                <button type="button" className="signIn" onClick={this.handleLogin}>
+                  Sign In
+                </button>
+              
+            </form>
+            
+              </div>
+                
+                /* <label>Remember Me</label>
                 <input type="checkbox" className="remember"></input>
               </div>
               <div>
@@ -88,7 +113,7 @@ export default class LoginForm extends Component {
             </div>
           </fieldset>
         </div>
-      </form>
+      </form> */
     );
   }
 }

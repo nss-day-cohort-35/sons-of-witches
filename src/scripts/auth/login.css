@@ -1,13 +1,13 @@
 h3 {
     color: white;
 }
-body {
+/* body {
     background: url(https://ae01.alicdn.com/kf/HTB1rOXyoQOWBuNjSsppq6xPgpXap/Witch-Cauldron-with-Color-Smoke-for-Halloween-backdrop-Vinyl-cloth-High-quality-Computer-print-party-Background.jpg_640x640.jpg)no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
+} */
 .formgrid {
 margin: 0 auto 0 auto;  
 width:100%; 
@@ -91,10 +91,9 @@ text-align:center;
 
   .signInBtn {
     background:#674d72;
-    width:250px;
-    height:150px;
-    padding-top:5px;
-    padding-bottom:5px;
+    width:200px;
+    height:100px;
+ 
     margin-top: 2%;
     color:white;
     border-radius:10%;
@@ -108,10 +107,9 @@ text-align:center;
   }
   .registerBtn {
     background:#674d72;
-    width:250px;
-    height:150px;
-    padding-top:5px;
-    padding-bottom:5px;
+    width:200px;
+    height:100px;
+ 
     margin: 15%;
     color:white;
     border-radius:10%;
