@@ -15,3 +15,8 @@ code {
 body {
   background-image: url("/images/1.jpg");
 }
+
+
+.box {
+  width: 700px !important;
+}
